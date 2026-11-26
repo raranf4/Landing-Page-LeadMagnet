@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panduan Membuat CV - JobConnect</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --blue: #2563eb;
+  --navy: #10213d;
+  --muted: #64748b;
+  --pale: #f3f7ff;
+  --line: #e5ebf5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--navy);
+  background: #f7f9fd;
+  line-height: 1.75;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  max-width: 1180px;
+  margin: auto;
+  padding: 15px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.brand {
+  font: 800 22px 'Plus Jakarta Sans';
+  letter-spacing: -0.8px;
+}
+
+.brand span {
+  color: var(--blue);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  border: 1px solid var(--line);
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: var(--blue);
+  color: white;
+  border-color: var(--blue);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.layout {
+  max-width: 1180px;
+  margin: 34px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 245px minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.sidebar {
+  position: sticky;
+  top: 95px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 25px #17345d0a;
+}
+
+.sidebar h3 {
+  font: 800 14px 'Plus Jakarta Sans';
+  margin-bottom: 12px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 8px 10px;
+  margin: 2px 0;
+  border-radius: 8px;
+  color: #52627a;
+  font-size: 13px;
+}
+
+.sidebar a:hover {
+  background: #edf4ff;
+  color: var(--blue);
+}
+
+main {
+  min-width: 0;
+}
+
+.hero {
+  background: linear-gradient(130deg, #102b61, #2563eb);
+  color: white;
+  padding: 42px;
+  border-radius: 20px;
+  margin-bottom: 22px;
+  box-shadow: 0 18px 40px #1d4ed822;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #c6dcff;
+}
+
+.hero h1 {
+  font: 800 clamp(29px, 4vw, 43px)/1.2 'Plus Jakarta Sans';
+  letter-spacing: -1.5px;
+  margin: 12px 0;
+}
+
+.hero p {
+  color: #e0eaff;
+  max-width: 650px;
+}
+
+.hero .tag {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 7px 12px;
+  border: 1px solid #ffffff55;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 25px #17345d08;
+  scroll-margin-top: 95px;
+}
+
+.kicker {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+.card h2 {
+  font: 800 clamp(22px, 3vw, 29px)/1.3 'Plus Jakarta Sans';
+  letter-spacing: -0.7px;
+  margin: 7px 0 16px;
+}
+
+.card h3 {
+  font: 800 17px 'Plus Jakarta Sans';
+  margin: 18px 0 8px;
+}
+
+.card p {
+  color: #52627a;
+  margin: 9px 0;
+}
+
+.grid2,
+.grid3 {
+  display: grid;
+  gap: 13px;
+  margin-top: 18px;
+}
+
+.grid2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.mini {
+  background: var(--pale);
+  border: 1px solid #e5edfc;
+  border-radius: 12px;
+  padding: 17px;
+}
+
+.mini strong {
+  display: block;
+  color: var(--blue);
+  font: 800 14px 'Plus Jakarta Sans';
+  margin-bottom: 5px;
+}
+
+.mini p {
+  font-size: 13px;
+  margin: 0;
+}
+
+.number {
+  font: 800 24px 'Plus Jakarta Sans';
+  color: #9bbcff;
+  margin-bottom: 5px;
+}
+
+ul,
+ol {
+  padding-left: 22px;
+  color: #52627a;
+  margin: 10px 0;
+}
+
+li {
+  padding: 3px 0;
+}
+
+.example {
+  background: #f3f7ff;
+  border-left: 4px solid var(--blue);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin: 15px 0;
+  color: #34445e;
+}
+
+.tip {
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  padding: 15px 17px;
+  border-radius: 10px;
+  color: #1e40af;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.cv-sample {
+  border: 1px solid #dce4f0;
+  border-radius: 12px;
+  padding: 23px;
+  margin-top: 15px;
+  background: #fff;
+}
+
+.cv-sample h3 {
+  margin: 0;
+  color: #1d4ed8;
+  font-size: 22px;
+}
+
+.cv-sample .sub {
+  font-weight: 700;
+  color: #475569;
+  margin: 0 0 12px;
+}
+
+.cv-sample h4 {
+  font: 800 12px 'Plus Jakarta Sans';
+  color: #1d4ed8;
+  text-transform: uppercase;
+  border-bottom: 1px solid #dbeafe;
+  padding-bottom: 4px;
+  margin-top: 14px;
+}
+
+.cv-sample p,
+.cv-sample li {
+  font-size: 13px;
+  color: #475569;
+}
+
+.checklist {
+  list-style: none;
+  padding: 0;
+}
+
+.checklist li {
+  padding: 8px 0;
+  border-bottom: 1px solid #edf1f7;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.checklist input {
+  margin-top: 6px;
+  accent-color: var(--blue);
+  flex-shrink: 0;
+}
+
+.closing {
+  background: linear-gradient(130deg, #eff5ff, #fff);
+  text-align: center;
+}
+
+.closing h2 {
+  color: #174bc0;
+}
+
+.footer {
+  text-align: center;
+  padding: 25px;
+  color: #8996aa;
+  font-size: 12px;
+}
+
+@media (max-width: 850px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .sidebar nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2px;
+  }
+
+  .grid3 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .nav {
+    padding: 13px 16px;
+  }
+
+  .nav-actions .btn {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .layout {
+    padding: 0 14px;
+    margin: 18px auto;
+  }
+
+  .hero {
+    padding: 27px 23px;
+  }
+
+  .card {
+    padding: 22px 19px;
+  }
+
+  .grid2,
+  .grid3 {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar nav {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="nav">
+    <a class="brand" href="index.html">Job<span>Connect.</span></a>
+
+    <div class="nav-actions">
+      <a class="btn" href="index.html">Kembali</a>
+      <a class="btn primary js-download-pdf"
+         href="E-book_Panduan_CV_Fresh_Graduate_Redesign.pdf"
+         download="E-book_Panduan_CV_Fresh_Graduate_Redesign.pdf">
+        Unduh PDF
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+
+<aside class="sidebar">
+  <h3>Daftar Isi Panduan</h3>
+
+  <nav>
+    <a href="#daftar-isi">Daftar Isi</a>
+    <a href="#pengantar">Pengantar</a>
+    <a href="#ciri">Ciri CV yang Baik</a>
+    <a href="#persiapan">Persiapan</a>
+    <a href="#struktur">Struktur CV</a>
+    <a href="#profil">Profil Diri</a>
+    <a href="#pengalaman">Pendidikan & Pengalaman</a>
+    <a href="#skill">Keterampilan</a>
+    <a href="#desain">Desain Profesional</a>
+    <a href="#kesalahan">Kesalahan CV</a>
+    <a href="#contoh">Contoh CV</a>
+    <a href="#checklist">Checklist</a>
+    <a href="#penutup">Penutup</a>
+  </nav>
+</aside>
+
+<main>
+
+<section class="hero">
+  <span class="eyebrow">FREE CAREER GUIDE · JOBCONNECT</span>
+
+  <h1>Panduan Membuat CV yang Menarik</h1>
+
+  <p>
+    Tampilkan potensimu, ciptakan kesan profesional.
+    Panduan praktis untuk menyusun CV yang rapi, menarik,
+    dan mampu menunjukkan kemampuan terbaikmu.
+  </p>
+
+  <span class="tag">Versi website · Baca langsung di sini</span>
+</section>
+
+<section class="card" id="daftar-isi">
+  <span class="kicker">Daftar Isi</span>
+  <h2>Apa yang Akan Kamu Pelajari?</h2>
+
+  <div class="grid3">
+    <div class="mini">
+      <strong>01 · Mengenal CV</strong>
+      <p>Pentingnya CV yang menarik dan ciri-ciri CV yang baik.</p>
+    </div>
+
+    <div class="mini">
+      <strong>02 · Menyusun Isi CV</strong>
+      <p>Persiapan, struktur CV, profil diri, pendidikan, pengalaman, dan keterampilan.</p>
+    </div>
+
+    <div class="mini">
+      <strong>03 · Menyempurnakan CV</strong>
+      <p>Desain profesional, kesalahan yang harus dihindari, contoh CV, dan checklist.</p>
+    </div>
+  </div>
+</section>
+
+<section class="card" id="pengantar">
+  <span class="kicker">Pengantar</span>
+  <h2>CV Menarik, Peluang Semakin Terbuka!</h2>
+
+  <p>
+    CV merupakan salah satu dokumen penting dalam proses melamar pekerjaan.
+    Melalui CV, perusahaan dapat mengenal latar belakang, pengalaman,
+    dan kemampuan seorang pelamar.
+  </p>
+
+  <p>
+    Namun, membuat CV yang baik tidak harus sulit. Kamu tidak perlu
+    memiliki banyak pengalaman untuk menghasilkan CV yang menarik.
+  </p>
+
+  <div class="tip">
+    Kuncinya adalah menyajikan informasi secara jelas, relevan,
+    dan terstruktur.
+  </div>
+</section>
+
+<section class="card" id="ciri">
+  <span class="kicker">01 · Mengenal CV</span>
+  <h2>Ciri-Ciri CV yang Baik</h2>
+
+  <p>
+    CV yang menarik bukan hanya tentang desain, tetapi juga tentang
+    bagaimana informasi disampaikan.
+  </p>
+
+  <div class="grid2">
+    <div class="mini">
+      <div class="number">01</div>
+      <strong>Informatif</strong>
+      <p>Memuat informasi penting tentang diri, pendidikan, dan kemampuan.</p>
+    </div>
+
+    <div class="mini">
+      <div class="number">02</div>
+      <strong>Terstruktur</strong>
+      <p>Memiliki susunan bagian yang jelas dan mudah dipahami.</p>
+    </div>
+
+    <div class="mini">
+      <div class="number">03</div>
+      <strong>Ringkas</strong>
+      <p>Menggunakan kalimat singkat tanpa informasi yang berlebihan.</p>
+    </div>
+
+    <div class="mini">
+      <div class="number">04</div>
+      <strong>Profesional</strong>
+      <p>Menggunakan bahasa yang baik serta tampilan yang konsisten.</p>
+    </div>
+
+    <div class="mini">
+      <div class="number">05</div>
+      <strong>Relevan</strong>
+      <p>Menampilkan pengalaman dan keterampilan sesuai posisi yang dilamar.</p>
+    </div>
+  </div>
+</section>
+
+<section class="card" id="persiapan">
+  <span class="kicker">02 · Menyusun Isi CV</span>
+  <h2>Persiapan Sebelum Membuat CV</h2>
+
+  <p>
+    Sebelum mulai mendesain CV, kumpulkan informasi yang akan dicantumkan.
+  </p>
+
+  <ul>
+    <li>Identitas dan kontak aktif.</li>
+    <li>Riwayat pendidikan.</li>
+    <li>Pengalaman PKL atau pekerjaan.</li>
+    <li>Pengalaman organisasi dan proyek.</li>
+    <li>Keterampilan yang dimiliki.</li>
+    <li>Sertifikat atau pelatihan.</li>
+  </ul>
+
+  <div class="tip">
+    <strong>Tips:</strong> Kumpulkan semua informasi terlebih dahulu
+    agar proses penyusunan CV menjadi lebih mudah dan terarah.
+  </div>
+</section>
+
+<section class="card" id="struktur">
+  <span class="kicker">02 · Menyusun Isi CV</span>
+  <h2>Struktur CV</h2>
+
+  <p>
+    Gunakan struktur berikut agar informasi mudah ditemukan oleh perekrut.
+  </p>
+
+  <div class="grid2">
+    <div class="mini">
+      <strong>01 · Identitas Diri</strong>
+      <p>Nama lengkap, nomor telepon, email, dan domisili.</p>
+    </div>
+
+    <div class="mini">
+      <strong>02 · Profil Singkat</strong>
+      <p>Gambaran singkat tentang latar belakang dan kemampuanmu.</p>
+    </div>
+
+    <div class="mini">
+      <strong>03 · Pendidikan</strong>
+      <p>Nama institusi, jurusan, dan tahun pendidikan.</p>
+    </div>
+
+    <div class="mini">
+      <strong>04 · Pengalaman</strong>
+      <p>PKL, pekerjaan, organisasi, atau proyek.</p>
+    </div>
+
+    <div class="mini">
+      <strong>05 · Keterampilan</strong>
+      <p>Kemampuan teknis maupun nonteknis.</p>
+    </div>
+
+    <div class="mini">
+      <strong>06 · Sertifikat</strong>
+      <p>Pelatihan atau sertifikasi yang relevan.</p>
+    </div>
+  </div>
+</section>
+
+<section class="card" id="profil">
+  <span class="kicker">02 · Menyusun Isi CV</span>
+  <h2>Cara Menulis Profil Diri</h2>
+
+  <p>
+    Profil diri adalah bagian yang memperkenalkan latar belakang,
+    kemampuan, serta minat profesionalmu.
+  </p>
+
+  <div class="example">
+    <strong>Contoh:</strong><br>
+    "Lulusan SMK jurusan Rekayasa Perangkat Lunak yang memiliki
+    ketertarikan pada pengembangan website. Memahami dasar HTML,
+    CSS, PHP, dan MySQL melalui pembelajaran serta proyek sekolah.
+    Memiliki semangat belajar dan mampu bekerja sama dalam tim."
+  </div>
+
+  <h3>Tips Menulis Profil Diri</h3>
+
+  <ul>
+    <li>Gunakan 2–4 kalimat.</li>
+    <li>Tonjolkan kemampuan yang relevan.</li>
+    <li>Gunakan bahasa profesional.</li>
+    <li>Hindari deskripsi yang terlalu panjang.</li>
+  </ul>
+</section>
+
+<section class="card" id="pengalaman">
+  <span class="kicker">02 · Menyusun Isi CV</span>
+  <h2>Pendidikan dan Pengalaman</h2>
+
+  <p>
+    Belum pernah bekerja bukan berarti kamu tidak memiliki pengalaman.
+    Kegiatan selama sekolah atau kuliah juga dapat menunjukkan kemampuanmu.
+  </p>
+
+  <div class="grid2">
+    <div class="mini">
+      <strong>Riwayat Pendidikan</strong>
+      <p>
+        Cantumkan nama sekolah atau perguruan tinggi, jurusan,
+        dan tahun pendidikan.
+      </p>
+    </div>
+
+    <div class="mini">
+      <strong>Pengalaman yang Bisa Dicantumkan</strong>
+      <p>
+        PKL, proyek sekolah atau kuliah, organisasi dan kepanitiaan,
+        pelatihan atau kegiatan sukarela.
+      </p>
+    </div>
+  </div>
+
+  <div class="example">
+    <strong>Contoh Penulisan:</strong><br>
+    <b>Proyek Website Profil Kelas</b><br>
+    SMK | 2025<br>
+    Membuat website profil kelas menggunakan PHP dan MySQL
+    serta menyusun halaman informasi siswa dan jadwal pelajaran.
+  </div>
+</section>
+
+<section class="card" id="skill">
+  <span class="kicker">02 · Menyusun Isi CV</span>
+  <h2>Keterampilan dan Sertifikat</h2>
+
+  <p>
+    Keterampilan menjadi salah satu informasi penting untuk menunjukkan
+    potensi dirimu.
+  </p>
+
+  <div class="grid2">
+    <div class="mini">
+      <strong>Hard Skills</strong>
+      <p>Kemampuan teknis yang dapat dipelajari dan dipraktikkan.</p>
+      <p>
+        Contoh: Microsoft Office, HTML dan CSS, PHP dan MySQL,
+        desain grafis, UI/UX Design.
+      </p>
+    </div>
+
+    <div class="mini">
+      <strong>Soft Skills</strong>
+      <p>Kemampuan dalam berkomunikasi dan bekerja.</p>
+      <p>
+        Contoh: komunikasi, kerja sama tim, manajemen waktu,
+        berpikir kritis, pemecahan masalah.
+      </p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Sertifikat:</strong> Cantumkan pelatihan atau sertifikasi
+    yang pernah diikuti dan relevan dengan pekerjaan.
+  </div>
+</section>
+
+<section class="card" id="desain">
+  <span class="kicker">03 · Menyempurnakan CV</span>
+  <h2>Desain CV Profesional</h2>
+
+  <p>
+    Desain CV yang baik membantu perekrut membaca informasi dengan nyaman.
+  </p>
+
+  <div class="grid2">
+    <div class="mini">
+      <strong>Font</strong>
+      <p>Gunakan huruf yang sederhana dan mudah dibaca.</p>
+    </div>
+
+    <div class="mini">
+      <strong>Warna</strong>
+      <p>Pilih 2–3 warna yang serasi dan tidak berlebihan.</p>
+    </div>
+
+    <div class="mini">
+      <strong>Tata Letak</strong>
+      <p>Susun setiap bagian secara rapi dan konsisten.</p>
+    </div>
+
+    <div class="mini">
+      <strong>Ukuran Tulisan</strong>
+      <p>Buat judul lebih menonjol daripada isi.</p>
+    </div>
+
+    <div class="mini">
+      <strong>Format File</strong>
+      <p>Simpan dokumen dalam format PDF agar tampilannya lebih terjaga.</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    Tampilan sederhana bisa lebih meyakinkan.
+    Utamakan keterbacaan dan konsistensi.
+  </div>
+</section>
+
+<section class="card" id="kesalahan">
+  <span class="kicker">03 · Menyempurnakan CV</span>
+  <h2>Kesalahan yang Harus Dihindari</h2>
+
+  <p>Beberapa kesalahan yang sering terjadi saat membuat CV:</p>
+
+  <ul>
+    <li>Informasi terlalu panjang dan berulang.</li>
+    <li>Salah ketik atau kesalahan penulisan.</li>
+    <li>Desain terlalu ramai.</li>
+    <li>Menggunakan email yang tidak profesional.</li>
+    <li>Mencantumkan kontak yang tidak aktif.</li>
+    <li>Menuliskan kemampuan yang tidak dikuasai.</li>
+    <li>Memasukkan pengalaman yang tidak relevan.</li>
+  </ul>
+
+  <div class="tip">
+    <strong>Ingat:</strong> Utamakan kejujuran, kejelasan,
+    dan kerapian dalam setiap informasi yang kamu tulis.
+  </div>
+</section>
+
+<section class="card" id="contoh">
+  <span class="kicker">03 · Menyempurnakan CV</span>
+  <h2>Contoh CV Fresh Graduate</h2>
+
+  <p>
+    Berikut contoh susunan CV sederhana.
+    Nama dan informasi pada contoh ini bersifat fiktif.
+  </p>
+
+  <div class="cv-sample">
+    <h3>NADIA PUTRI</h3>
+    <p class="sub">Fresh Graduate | Administrasi Perkantoran</p>
+
+    <h4>Kontak</h4>
+    <p>
+      Email: nadia.putri@email.com<br>
+      Telepon: 08xxxxxxxxxx<br>
+      Domisili: Bandung
+    </p>
+
+    <h4>Profil Diri</h4>
+    <p>
+      Lulusan SMK Administrasi Perkantoran yang memiliki kemampuan
+      dasar dalam pengelolaan dokumen dan pengoperasian Microsoft Office.
+      Teliti, disiplin, dan memiliki semangat untuk mengembangkan
+      kemampuan di lingkungan kerja.
+    </p>
+
+    <h4>Pendidikan</h4>
+    <p>
+      SMK Negeri 1 Bandung | 2022–2025<br>
+      Jurusan Administrasi Perkantoran
+    </p>
+
+    <h4>Pengalaman</h4>
+    <p>
+      <b>PKL – Bagian Administrasi | 2024</b><br>
+      Membantu pengarsipan dokumen, penginputan data,
+      dan penyusunan berkas administrasi.
+    </p>
+
+    <h4>Keterampilan</h4>
+    <ul>
+      <li>Microsoft Word</li>
+      <li>Microsoft Excel</li>
+      <li>Komunikasi</li>
+      <li>Pengelolaan dokumen</li>
+    </ul>
+  </div>
+</section>
+
+<section class="card" id="checklist">
+  <span class="kicker">03 · Sebelum Mengirim CV</span>
+  <h2>Checklist Sebelum Mengirim CV</h2>
+
+  <p>Periksa kembali CV-mu sebelum mengirimkannya.</p>
+
+  <ul class="checklist">
+    <li><input type="checkbox">Nama dan informasi kontak sudah benar.</li>
+    <li><input type="checkbox">Email terlihat profesional.</li>
+    <li><input type="checkbox">Profil diri sudah jelas.</li>
+    <li><input type="checkbox">Riwayat pendidikan sudah lengkap.</li>
+    <li><input type="checkbox">Pengalaman ditulis dengan baik.</li>
+    <li><input type="checkbox">Keterampilan sesuai kemampuan.</li>
+    <li><input type="checkbox">Tidak ada kesalahan penulisan.</li>
+    <li><input type="checkbox">Desain rapi dan mudah dibaca.</li>
+    <li><input type="checkbox">Dokumen sudah disimpan dalam format PDF.</li>
+  </ul>
+
+  <div class="tip">
+    Jika semua sudah diperiksa, CV-mu siap digunakan untuk melamar pekerjaan!
+  </div>
+</section>
+
+<section class="card closing" id="penutup">
+  <span class="kicker">Penutup</span>
+
+  <h2>Setiap Peluang Dimulai dari Persiapan</h2>
+
+  <p>
+    Membuat CV yang menarik adalah salah satu langkah awal
+    untuk memperkenalkan potensi diri kepada dunia kerja.
+  </p>
+
+  <p>
+    Jangan ragu memulai meskipun pengalamanmu masih terbatas.
+    Terus kembangkan keterampilan, kumpulkan pengalaman,
+    dan persiapkan dirimu untuk setiap kesempatan.
+  </p>
+
+  <p>
+    <strong>Temukan peluang kariermu bersama JobConnect.</strong><br>
+    Connect Your Skills, Discover Your Career.
+  </p>
+
+  <p>Terima kasih telah membaca!</p>
+
+  <a class="btn primary js-download-pdf"
+     href="E-book_Panduan_CV_Fresh_Graduate_Redesign.pdf"
+     download="E-book_Panduan_CV_Fresh_Graduate_Redesign.pdf"
+     style="margin-top:18px">
+    Unduh PDF Versi Asli
+  </a>
+</section>
+
+<div class="footer">
+  © 2026 JobConnect. All rights reserved.
+</div>
+
+</main>
+</div>
+
+<script>
+document.querySelectorAll(".js-download-pdf").forEach(function(link) {
+  link.addEventListener("click", function(event) {
+    if (window.location.protocol === "file:") {
+      return;
+    }
+
+    event.preventDefault();
+    const url = link.getAttribute("href");
+    const filename = link.getAttribute("download") || "panduan-cv.pdf";
+
+    fetch(url)
+      .then(function(response) {
+        if (!response.ok) {
+          throw new Error("Gagal mengambil file PDF");
+        }
+        return response.blob();
+      })
+      .then(function(blob) {
+        const blobUrl = URL.createObjectURL(blob);
+        const tempLink = document.createElement("a");
+        tempLink.href = blobUrl;
+        tempLink.download = filename;
+        document.body.appendChild(tempLink);
+        tempLink.click();
+        tempLink.remove();
+        setTimeout(function() {
+          URL.revokeObjectURL(blobUrl);
+        }, 1000);
+      })
+      .catch(function() {
+        const fallbackLink = document.createElement("a");
+        fallbackLink.href = url;
+        fallbackLink.download = filename;
+        document.body.appendChild(fallbackLink);
+        fallbackLink.click();
+        fallbackLink.remove();
+      });
+  });
+});
+</script>
+
+</body>
+</html>

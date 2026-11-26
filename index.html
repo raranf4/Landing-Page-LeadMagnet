@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-book Panduan Membuat CV - JobConnect</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset & Variabel */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --blue: #2563eb;
+      --dark: #10213d;
+      --muted: #64748b;
+      --light: #f5f8ff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background: #fff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* Navigasi */
+    nav {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid #edf1f7;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .nav-button,
+    .primary-button {
+      display: inline-block;
+      background: var(--blue);
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 9px;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .nav-button {
+      font-size: 14px;
+    }
+
+    .nav-button:hover,
+    .primary-button:hover {
+      background: #174bc0;
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: radial-gradient(circle at 80% 20%, #dceaff 0, transparent 30%), linear-gradient(135deg, #f7faff, #edf4ff);
+      padding: 95px 0 100px;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: #e0ebff;
+      color: #1d4ed8;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 8px 14px;
+      border-radius: 30px;
+      letter-spacing: 0.7px;
+      margin-bottom: 22px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(36px, 5vw, 57px);
+      letter-spacing: -2.5px;
+      margin-bottom: 22px;
+    }
+
+    h1 span {
+      color: var(--blue);
+    }
+
+    .hero-description {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 550px;
+      margin-bottom: 30px;
+    }
+
+    .small-note {
+      display: block;
+      margin-top: 13px;
+      font-size: 12px;
+      color: #8491a5;
+    }
+
+    /* Mockup Buku */
+    .book-area {
+      display: flex;
+      justify-content: center;
+      perspective: 1000px;
+    }
+
+    .book {
+      width: 280px;
+      min-height: 390px;
+      padding: 35px 27px;
+      color: #fff;
+      background: linear-gradient(145deg, #174bc0, #0d2455);
+      border-radius: 8px 18px 18px 8px;
+      box-shadow: 18px 22px 45px #14346e40;
+      position: relative;
+      transform: rotate(4deg);
+      border-left: 9px solid #0b1c42;
+      transition: 0.4s;
+    }
+
+    .book:hover {
+      transform: rotate(0) translateY(-7px);
+    }
+
+    .book-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #a9c9ff;
+      font-weight: 800;
+      margin-bottom: 30px;
+    }
+
+    .book h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .book p {
+      font-size: 12px;
+      color: #d1e2ff;
+    }
+
+    .book-line {
+      width: 48px;
+      height: 4px;
+      background: #72a7ff;
+      margin: 24px 0;
+      border-radius: 5px;
+    }
+
+    .book-bottom {
+      position: absolute;
+      bottom: 28px;
+      left: 27px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    /* Trust Bar */
+    .trust {
+      padding: 27px 0;
+      border-bottom: 1px solid #edf1f7;
+    }
+
+    .trust-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 45px;
+      flex-wrap: wrap;
+      color: #64748b;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* Benefits & Target */
+    .benefits,
+    .target {
+      padding: 90px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 50px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(27px, 4vw, 38px);
+      margin-bottom: 15px;
+      letter-spacing: -1px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .benefit-grid,
+    .target-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .benefit-card {
+      padding: 30px;
+      border: 1px solid #e8eef8;
+      border-radius: 16px;
+      background: #fff;
+      transition: 0.3s;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px #10213d14;
+      border-color: #c8d9ff;
+    }
+
+    .benefit-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #eaf1ff;
+      color: var(--blue);
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .benefit-card h3 {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    .benefit-card p,
+    .target-card p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* Content & Form Section */
+    .content-section,
+    .form-section {
+      padding: 85px 0;
+      background: #f7f9fd;
+    }
+
+    .content-layout {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .content-info h2 {
+      font-size: clamp(28px, 4vw, 38px);
+      margin-bottom: 18px;
+      letter-spacing: -1px;
+    }
+
+    .content-info p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .content-list {
+      display: grid;
+      gap: 15px;
+    }
+
+    .content-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      padding: 16px;
+      background: #fff;
+      border: 1px solid #e8eef8;
+      border-radius: 12px;
+    }
+
+    .check {
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .content-item strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .content-item span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .target-card {
+      padding: 27px;
+      background: #f7f9fd;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .target-card h3 {
+      font-size: 16px;
+      margin-bottom: 9px;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 85px 0;
+      background: linear-gradient(135deg, #102d64, #174bc0);
+      color: #fff;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin-bottom: 15px;
+    }
+
+    .cta-section p {
+      color: #d5e3ff;
+      max-width: 600px;
+      margin: 0 auto 28px;
+    }
+
+    .cta-section .primary-button {
+      background: #fff;
+      color: #174bc0;
+      box-shadow: none;
+    }
+
+    .cta-section .primary-button:hover {
+      background: #eaf1ff;
+    }
+
+    /* Formulir */
+    .form-box {
+      max-width: 570px;
+      margin: auto;
+      padding: 38px;
+      background: #fff;
+      border: 1px solid #e8eef8;
+      border-radius: 18px;
+      box-shadow: 0 15px 40px #10213d10;
+    }
+
+    .form-box h2 {
+      font-size: 27px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .form-box > p {
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid #dce4f0;
+      border-radius: 9px;
+      outline: none;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    .form-group input:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px #2563eb1a;
+    }
+
+    .submit-button {
+      width: 100%;
+      border: 0;
+      cursor: pointer;
+      background: var(--blue);
+      color: #fff;
+      padding: 15px;
+      border-radius: 9px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .submit-button:hover {
+      background: #174bc0;
+      transform: translateY(-2px);
+    }
+
+    #message {
+      font-size: 13px;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 30px 0;
+      background: #0b1830;
+      color: #aab8ce;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: #fff;
+    }
+
+    /* Responsif */
+    @media (max-width: 850px) {
+      .hero-content,
+      .content-layout {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .hero {
+        padding: 70px 0;
+      }
+
+      .book-area {
+        margin-top: 15px;
+      }
+
+      .benefit-grid,
+      .target-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      nav {
+        height: 68px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .nav-button {
+        padding: 9px 13px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 55px 0 65px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .book {
+        width: 245px;
+        min-height: 350px;
+      }
+
+      .benefit-grid,
+      .target-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits,
+      .target,
+      .form-section,
+      .content-section {
+        padding: 65px 0;
+      }
+
+      .form-box {
+        padding: 25px 20px;
+      }
+
+      .trust-content {
+        gap: 15px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container nav-content">
+      <a href="#" class="logo">Job<span>Connect</span></a>
+      <a href="#form" class="nav-button">Dapatkan E-book</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <div>
+        <span class="eyebrow">FREE E-BOOK FOR FRESH GRADUATE</span>
+        <h1>Buat CV yang Menarik, <span>Mulai Langkah Kariermu!</span></h1>
+        <p class="hero-description">
+          Bingung membuat CV yang profesional meskipun belum memiliki banyak pengalaman?
+          Dapatkan panduan praktis untuk menyusun CV yang rapi, menarik, dan mampu
+          menunjukkan kemampuan terbaikmu.
+        </p>
+        <a href="#form" class="primary-button">Dapatkan E-book Gratis</a>
+        <span class="small-note">Gratis untuk pelajar, fresh graduate, dan pencari kerja pemula.</span>
+      </div>
+
+      <div class="book-area">
+        <div class="book">
+          <div class="book-label">JOBCONNECT PRESENTS</div>
+          <h2>Panduan Membuat CV yang Menarik</h2>
+          <p>Tampilkan Potensimu, Ciptakan Kesan Profesional</p>
+          <div class="book-line"></div>
+          <p>Panduan praktis untuk menyusun CV yang rapi dan menunjukkan kemampuan terbaikmu.</p>
+          <div class="book-bottom">JOBCONNECT</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust">
+    <div class="container trust-content">
+      <span>Panduan Praktis</span>
+      <span>Bahasa Mudah Dipahami</span>
+      <span>Cocok untuk Pemula</span>
+      <span>Akses Gratis</span>
+    </div>
+  </section>
+
+  <section class="benefits">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Kenapa Kamu Membutuhkan Panduan Ini?</h2>
+        <p>CV merupakan salah satu langkah awal dalam proses melamar pekerjaan. Karena itu, penting untuk menyusunnya dengan baik dan profesional.</p>
+      </div>
+
+      <div class="benefit-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">01</div>
+          <h3>Memahami CV yang Baik</h3>
+          <p>Pelajari ciri CV yang informatif, terstruktur, ringkas, profesional, dan relevan.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">02</div>
+          <h3>Menyusun Isi CV</h3>
+          <p>Kenali informasi penting yang perlu dicantumkan, mulai dari identitas hingga sertifikat.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">03</div>
+          <h3>Menyempurnakan CV</h3>
+          <p>Pelajari desain CV, kesalahan yang harus dihindari, dan checklist sebelum melamar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container content-layout">
+      <div class="content-info">
+        <span class="eyebrow">APA YANG AKAN KAMU PELAJARI?</span>
+        <h2>Semua Hal Penting untuk Membuat CV Profesional</h2>
+        <p>Panduan ini disusun secara sederhana agar kamu dapat memahami setiap bagian CV dan mulai membuatnya dengan lebih terarah.</p>
+        <a href="#form" class="primary-button">Pelajari Sekarang</a>
+      </div>
+
+      <div class="content-list">
+        <div class="content-item">
+          <span class="check">✓</span>
+          <div>
+            <strong>Mengenal CV</strong>
+            <span>Pentingnya CV yang menarik dan ciri-ciri CV yang baik.</span>
+          </div>
+        </div>
+
+        <div class="content-item">
+          <span class="check">✓</span>
+          <div>
+            <strong>Persiapan dan Struktur CV</strong>
+            <span>Mengumpulkan informasi dan menyusun bagian CV dengan tepat.</span>
+          </div>
+        </div>
+
+        <div class="content-item">
+          <span class="check">✓</span>
+          <div>
+            <strong>Menulis Profil Diri</strong>
+            <span>Menampilkan latar belakang, kemampuan, dan minat profesional.</span>
+          </div>
+        </div>
+
+        <div class="content-item">
+          <span class="check">✓</span>
+          <div>
+            <strong>Pendidikan, Pengalaman, dan Keterampilan</strong>
+            <span>Menyajikan pengalaman PKL, proyek, hard skills, dan soft skills.</span>
+          </div>
+        </div>
+
+        <div class="content-item">
+          <span class="check">✓</span>
+          <div>
+            <strong>Desain dan Kesalahan CV</strong>
+            <span>Membuat tampilan CV rapi dan menghindari kesalahan umum.</span>
+          </div>
+        </div>
+
+        <div class="content-item">
+          <span class="check">✓</span>
+          <div>
+            <strong>Contoh CV dan Checklist</strong>
+            <span>Melihat contoh susunan CV dan memeriksa kesiapan sebelum melamar.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="target">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Untuk Siapa Panduan Ini?</h2>
+        <p>Panduan ini ditujukan bagi siapa saja yang sedang mempersiapkan diri untuk memasuki dunia kerja.</p>
+      </div>
+
+      <div class="target-grid">
+        <div class="target-card">
+          <h3>Fresh Graduate</h3>
+          <p>Lulusan baru yang ingin mulai melamar pekerjaan dan belum memiliki banyak pengalaman kerja.</p>
+        </div>
+
+        <div class="target-card">
+          <h3>Pelajar dan Mahasiswa</h3>
+          <p>Pelajar SMK maupun mahasiswa yang ingin mempersiapkan CV untuk PKL, magang, atau pekerjaan.</p>
+        </div>
+
+        <div class="target-card">
+          <h3>Pencari Kerja Pemula</h3>
+          <p>Individu yang ingin memperbaiki CV agar lebih terstruktur dan mudah dipahami perusahaan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Persiapkan Kariermu Mulai Sekarang</h2>
+      <p>Jangan biarkan kebingungan membuat CV menghambat langkahmu. Mulai persiapkan diri dengan panduan sederhana dari JobConnect.</p>
+      <a href="#form" class="primary-button">Ambil E-book Gratis</a>
+    </div>
+  </section>
+
+  <section class="form-section" id="form">
+    <div class="container">
+      <div class="form-box">
+        <h2>Dapatkan E-book Gratis</h2>
+        <p>Isi nama dan alamat email kamu untuk melanjutkan ke panduan membuat CV dari JobConnect.</p>
+
+        <form id="ebookForm">
+          <div class="form-group">
+            <label for="nama">Nama Lengkap</label>
+            <input type="text" id="nama" placeholder="Masukkan nama lengkap" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Alamat Email</label>
+            <input type="email" id="email" placeholder="nama@email.com" required>
+          </div>
+
+          <button type="submit" class="submit-button">Dapatkan Panduan Sekarang</button>
+          <div id="message" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 <strong>JobConnect</strong>. All Rights Reserved.</p>
+      <p>Connect Your Skills, Discover Your Career.</p>
+    </div>
+  </footer>
+
+  <script>
+    const ebookForm = document.getElementById("ebookForm");
+    const message = document.getElementById("message");
+
+    ebookForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const nama = document.getElementById("nama").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!nama || !email) {
+        message.style.color = "#dc2626";
+        message.textContent = "Mohon lengkapi semua data terlebih dahulu.";
+        return;
+      }
+
+      if (!emailPattern.test(email)) {
+        message.style.color = "#dc2626";
+        message.textContent = "Masukkan alamat email yang valid.";
+        return;
+      }
+
+      message.style.color = "#16a34a";
+      message.textContent = "Berhasil! Mengarahkan ke panduan CV...";
+
+      setTimeout(function() {
+        window.location.href = "panduan-cv.html";
+      }, 800);
+    });
+  </script>
+
+</body>
+</html>
